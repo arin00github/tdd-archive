@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Divider, Layout } from "antd";
+import { Card, Descriptions, Divider, Layout } from "antd";
 import { CreateUser } from "../../components/tddBasic";
 import axios from "axios";
 import { GET_OPTIONS_URL, makeTestUrl } from "../../services/api/constant";
@@ -26,7 +26,11 @@ const TDDBasicPage = () => {
       <Content style={{ padding: "0 32px", marginTop: "30px" }}>
         <h2>Concept of TDD</h2>
         <div>
-          <p>expect 함수 사용방법 가이드</p>
+          <Descriptions>
+            <Descriptions.Item label="topic">
+              expect 함수 사용방법 가이드
+            </Descriptions.Item>
+          </Descriptions>
         </div>
         <Divider />
         <Content style={{ display: "flex" }}>

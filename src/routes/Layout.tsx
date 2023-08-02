@@ -44,12 +44,12 @@ function getItem(
 const items: MenuProps["items"] = [
   getItem("Home", "sub0", <HomeOutlined />),
   getItem("TDD Basic", "sub1", <StarOutlined />, [
-    getItem("Concept of TDD 1", "/tdd-comcept-1"),
+    getItem("Expect()", "/tdd-comcept-1"),
   ]),
   getItem("TDD API", "sub2", <StarOutlined />, [
-    getItem("Axios API", "/tdd-api-2"),
-    getItem("React Query", "/tdd-api-3"),
-    getItem("React Query 2", "/tdd-api-4"),
+    getItem("MSW", "/tdd-api-1"),
+    getItem("React Query", "/tdd-api-2"),
+    getItem("React Query 2", "/tdd-api-3"),
   ]),
 
   { type: "divider" },

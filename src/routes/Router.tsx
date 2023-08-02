@@ -11,7 +11,7 @@ export const pageArray = [
   { path: "/main", element: <HomePage /> },
   { path: "/tdd-comcept-1", element: <TDDBasicPage /> },
   {
-    path: "/tdd-api-2",
+    path: "/tdd-api-1",
     element: <TDDApiPage />,
   },
   {
