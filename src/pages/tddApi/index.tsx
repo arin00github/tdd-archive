@@ -5,7 +5,9 @@ const TDDApiPage = () => {
 
   return (
     <Layout>
-      <Content>TDDApiPage</Content>
+      <Content style={{ padding: "0 32px", marginTop: "30px" }}>
+        TDDApiPage
+      </Content>
     </Layout>
   );
 };

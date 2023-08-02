@@ -5,7 +5,9 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <Content>Home</Content>
+      <Content style={{ padding: "0 32px", marginTop: "30px" }}>
+        <h2>HomePage</h2>
+      </Content>
     </Layout>
   );
 };

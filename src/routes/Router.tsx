@@ -5,17 +5,19 @@ import TDDBasicPage from "../pages/tddBasic";
 import TDDApiPage from "../pages/tddApi";
 import HomePage from "../pages/home";
 
+const BASE_URL = "/tdd-archive";
+
 export const pageArray = [
+  { path: "/main", element: <HomePage /> },
+  { path: "/tdd-comcept-1", element: <TDDBasicPage /> },
   {
-    path: "/mutation-example-1",
-    element: <MutationExamplePage />,
-  },
-  { path: "/tdd-comcept-2", element: <TDDBasicPage /> },
-  {
-    path: "/tdd-api-msw-3",
+    path: "/tdd-api-2",
     element: <TDDApiPage />,
   },
-  { path: "/main", element: <HomePage /> },
+  {
+    path: "/tdd-api-4",
+    element: <MutationExamplePage />,
+  },
 ];
 
 const routerObject = [
@@ -27,6 +29,6 @@ const routerObject = [
   { path: "*", element: <Navigate replace to="/main" /> },
 ];
 
-const router = createBrowserRouter(routerObject);
+const router = createBrowserRouter(routerObject, { basename: BASE_URL });
 
 export default router;

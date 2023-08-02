@@ -10,17 +10,22 @@
     "test": "jest"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.1.4",
     "@tanstack/react-query": "^4.32.0",
     "antd": "^5.7.3",
     "axios": "^1.4.0",
+    "highlight.js": "^11.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.7",
     "react-router-dom": "^6.14.2",
-    "recoil": "^0.7.7"
+    "recoil": "^0.7.7",
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.22.7",
     "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.3",
@@ -32,6 +37,7 @@
     "@typescript-eslint/parser": "^5.61.0",
     "@vitejs/plugin-react": "^4.0.1",
     "axios-mock-adapter": "^1.21.5",
+    "babel-jest": "^29.6.2",
     "eslint": "^8.44.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.1",
@@ -44,5 +50,8 @@
     "ts-jest": "^29.1.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.0"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

@@ -5,7 +5,9 @@ const MutationExamplePage = () => {
 
   return (
     <Layout>
-      <Content>MutationExample</Content>
+      <Content style={{ padding: "0 32px", marginTop: "30px" }}>
+        MutationExample
+      </Content>
     </Layout>
   );
 };

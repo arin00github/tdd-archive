@@ -1,6 +1,7 @@
 import { Layout, Menu } from "antd";
 import type { MenuProps } from "antd";
 import { useNavigate, Outlet } from "react-router-dom";
+import { HomeOutlined, StarOutlined } from "@ant-design/icons";
 
 type RouteTyep = {
   url: string;
@@ -41,39 +42,21 @@ function getItem(
 }
 
 const items: MenuProps["items"] = [
-  getItem("TDD Basic", "sub1", <div></div>, [
-    getItem(
-      "Item 1",
-      "g1",
-      null,
-      [getItem("Option 1", "1"), getItem("Option 2", "2")],
-      "group"
-    ),
-    getItem(
-      "Item 2",
-      "g2",
-      null,
-      [getItem("Option 3", "3"), getItem("Option 4", "4")],
-      "group"
-    ),
+  getItem("Home", "sub0", <HomeOutlined />),
+  getItem("TDD Basic", "sub1", <StarOutlined />, [
+    getItem("Concept of TDD 1", "/tdd-comcept-1"),
   ]),
-
-  getItem("TDD API", "sub2", <div></div>, [
-    getItem("Option 5", "5"),
-    getItem("Option 6", "6"),
-    getItem("Submenu", "sub3", null, [
-      getItem("Option 7", "7"),
-      getItem("Option 8", "8"),
-    ]),
+  getItem("TDD API", "sub2", <StarOutlined />, [
+    getItem("Axios API", "/tdd-api-2"),
+    getItem("React Query", "/tdd-api-3"),
+    getItem("React Query 2", "/tdd-api-4"),
   ]),
 
   { type: "divider" },
 
-  getItem("Navigation Three", "sub4", <div></div>, [
-    getItem("Option 9", "9"),
+  getItem("Mock", "sub3", <StarOutlined />, [
+    getItem("Mocking", "/tdd-mock-1"),
     getItem("Option 10", "10"),
-    getItem("Option 11", "11"),
-    getItem("Option 12", "12"),
   ]),
 
   getItem(
@@ -87,19 +70,26 @@ const items: MenuProps["items"] = [
 
 const RootLayout = () => {
   const { Content, Header, Sider } = Layout;
-  const navigate = useNavigate();
+  const navigator = useNavigate();
 
   const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click", e);
+    navigator(e.key);
   };
 
   return (
     <Layout>
-      <Header>currentMenu</Header>
+      <Header style={{ height: 40 }}>currentMenu</Header>
       <Content>
         <Layout>
-          <Sider>
-            <Menu onClick={onClick} items={items} />
+          <Sider style={{ height: "calc(100vh - 40px)" }}>
+            <Menu
+              style={{ height: "100%" }}
+              mode="inline"
+              defaultSelectedKeys={["1"]}
+              defaultOpenKeys={["sub1"]}
+              onClick={onClick}
+              items={items}
+            />
           </Sider>
           <Content>
             <Outlet />
