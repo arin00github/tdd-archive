@@ -1,18 +1,5 @@
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
-import ReactDOM from "react-dom/client";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { CreateUser, initialOptions } from "./CreateUser";
-
-let container: HTMLDivElement;
-
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  document.body.removeChild(container);
-  container.innerHTML = "";
-});
 
 describe("Create User Component", () => {
   // options의 초기값 체크
@@ -24,59 +11,28 @@ describe("Create User Component", () => {
   });
 
   it("Input Component Rendering & Change Value", async () => {
-    act(() => {
-      ReactDOM.createRoot(container).render(
-        <CreateUser options={initialOptions} />
-      );
-    });
-
-    const inputName = screen.getByTestId("creatuser-input-name");
-
+    const utils = render(<CreateUser options={initialOptions} />);
+    const inputName = utils.getByTestId("creatuser-input-name-2");
     expect(inputName).toBeInTheDocument();
-
-    act(() => {
-      // inputName.dispatchEvent(new MouseEvent('click', ))
-      fireEvent.change(inputName, { target: { value: "LeeYunseo" } });
-    });
-
-    await waitFor(() => {
-      expect(inputName.getAttribute("value")).toBe("LeeYunseo");
-    });
+    fireEvent.change(inputName, { target: { value: "LeeYunseo" } });
+    expect(inputName.getAttribute("value")).toBe("LeeYunseo");
   });
 
   it("Select Component Rendering & Change Value", async () => {
-    act(() => {
-      ReactDOM.createRoot(container).render(
-        <CreateUser options={initialOptions} />
-      );
-    });
-
-    const groupSelect = screen.getByTestId(
-      "create-select-group"
+    const utils = render(<CreateUser options={initialOptions} />);
+    const groupSelect = utils.getByTestId(
+      "create-select-group-2"
     ) as HTMLSelectElement;
-
     expect(groupSelect).toBeInTheDocument();
-
-    act(() => {
-      fireEvent.change(groupSelect, { target: { value: "TMS-group" } });
-    });
-
+    fireEvent.change(groupSelect, { target: { value: "TMS-group" } });
     expect(groupSelect.value).toBe("TMS-group");
-    expect(groupSelect.childNodes.length).toEqual(initialOptions.length);
+    expect(groupSelect.childNodes.length).toEqual(initialOptions.length + 1);
   });
 
   it("Error Message about Input", async () => {
-    act(() => {
-      ReactDOM.createRoot(container).render(
-        <CreateUser options={initialOptions} />
-      );
-    });
-    const submitBtn = screen.getByTestId("submit-btn");
-
-    act(() => fireEvent.click(submitBtn));
-
-    await waitFor(() => {
-      expect(screen.getByText("Please input your name")).toBeInTheDocument();
-    });
+    const utils = render(<CreateUser options={initialOptions} />);
+    const submitBtn = utils.getByTestId("submit-btn");
+    fireEvent.click(submitBtn);
+    expect(screen.getByText("모두 다 작성해 주세요")).toBeInTheDocument();
   });
 });

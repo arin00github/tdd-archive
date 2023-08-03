@@ -7,6 +7,7 @@ import "antd/dist/reset.css";
 
 import router from "./routes/Router.tsx";
 import { worker } from "./msw/browser.ts";
+import { ChakraProvider } from "@chakra-ui/react";
 
 if (process.env.NODE_ENV === "development") {
   worker.printHandlers();
@@ -18,6 +19,8 @@ hljs.registerLanguage("javascript", javascript);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ChakraProvider>
+      <RouterProvider router={router} />
+    </ChakraProvider>
   </React.StrictMode>
 );

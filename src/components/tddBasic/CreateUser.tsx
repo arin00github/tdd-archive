@@ -1,4 +1,14 @@
-import { Form, Input, Button } from "antd";
+import {
+  Box,
+  Input,
+  Select,
+  FormControl,
+  FormLabel,
+  Text,
+  Button,
+  ButtonGroup,
+} from "@chakra-ui/react";
+import React, { useState } from "react";
 
 interface CreatUserProps {
   options: { label: string; value: string }[];
@@ -10,52 +20,90 @@ export const initialOptions: { label: string; value: string }[] = [
   { label: "혁신개발", value: "innovation-development" },
 ];
 
+type ForeSet = {
+  name: string;
+  group: string | undefined;
+};
+
+const initialForm = { name: "", group: undefined };
+
 export const CreateUser = ({ options = initialOptions }: CreatUserProps) => {
-  const [form] = Form.useForm();
+  const [form, setForm] = useState<ForeSet>(initialForm);
 
-  const onReset = () => {
-    form.resetFields();
-  };
-  const onFinish = (values: any) => {
-    console.log("finish", values);
+  const [errorMsg, setErrorMsg] = useState<string>();
+
+  const [resultMsg, setResultMsg] = useState<string>();
+
+  const onFormChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+    if (resultMsg) setResultMsg(undefined);
+    if (errorMsg) setErrorMsg(undefined);
   };
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("errorInfo", errorInfo);
+  const onSubmitBtnClick = () => {
+    if (form.group && form.name) {
+      setResultMsg("등록 성공!");
+    } else {
+      setErrorMsg("모두 다 작성해 주세요");
+    }
+  };
+
+  const onResetBtnClick = () => {
+    setForm(initialForm);
+    if (resultMsg) setResultMsg(undefined);
+    if (errorMsg) setErrorMsg(undefined);
   };
   return (
-    <Form
-      form={form}
-      name="register-employee"
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-    >
-      <Form.Item
-        name="name"
-        label="Name"
-        rules={[{ required: true, message: "Please input your name" }]}
-      >
-        <input data-testid="creatuser-input-name" />
-      </Form.Item>
-      <Form.Item name="group" label="Group" rules={[{ required: true }]}>
-        <select placeholder="부서 선택" data-testid="create-select-group">
+    <Box>
+      <FormControl id="job-name">
+        <FormLabel>name</FormLabel>
+        <Input
+          name="name"
+          value={form.name}
+          onChange={onFormChange}
+          data-testid="creatuser-input-name-2"
+        />
+      </FormControl>
+      <FormControl id="job-group">
+        <FormLabel>group</FormLabel>
+        <Select
+          name="group"
+          onChange={onFormChange}
+          value={form.group}
+          data-testid="create-select-group-2"
+        >
           <option value={undefined}>선택 안함</option>
           {options.map((opt) => (
             <option value={opt.value} key={opt.value}>
               {opt.label}
             </option>
           ))}
-        </select>
-      </Form.Item>
-
-      <Form.Item>
-        <Button htmlType="submit" type="primary" data-testid="submit-btn">
+        </Select>
+      </FormControl>
+      {errorMsg && (
+        <Text mt={4} color="red.600">
+          {errorMsg}
+        </Text>
+      )}
+      <ButtonGroup pt={6}>
+        <Button
+          onClick={onSubmitBtnClick}
+          colorScheme="blue"
+          data-testid="submit-btn"
+        >
           Submit
         </Button>
-        <Button htmlType="button" onClick={onReset} data-testid="reset-btn">
-          Reset
+        <Button onClick={onResetBtnClick} colorScheme="blue" variant="outline">
+          reset
         </Button>
-      </Form.Item>
-    </Form>
+      </ButtonGroup>
+      <Box>{resultMsg && <Box>{resultMsg}</Box>}</Box>
+    </Box>
   );
 };
