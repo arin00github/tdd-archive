@@ -3,3 +3,5 @@ export const makeTestUrl = (urlString: string) => {
 };
 
 export const GET_OPTIONS_URL = "/asset-list/options";
+
+export const GET_POSTS_URL = "/posts-list";

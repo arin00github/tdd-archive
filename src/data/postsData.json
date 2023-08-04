@@ -1,0 +1,44 @@
+[
+  {
+    "writer": "daniel",
+    "title": "How to study react",
+    "reg_date": "2023-03-02",
+    "uid": "posts-rrff1adk2l"
+  },
+  {
+    "writer": "suheon",
+    "title": "[Rule] git Commit Convention",
+    "reg_date": "2023-04-26",
+    "uid": "posts-1k4jkarsw1"
+  },
+  {
+    "writer": "mulan",
+    "title": "Docker for Junior Developer",
+    "reg_date": "2023-06-19",
+    "uid": "posts-213eadk2l"
+  },
+  {
+    "writer": "jerry",
+    "title": "Database and SQL",
+    "reg_date": "2023-02-26",
+    "uid": "posts-31k26k2l"
+  },
+  {
+    "writer": "potter",
+    "title": "Most Popular Styled Library in 2023",
+    "reg_date": "2023-07-05",
+    "uid": "posts-154adk2l"
+  },
+  {
+    "writer": "yamato",
+    "title": "CSS Rules",
+    "reg_date": "2023-07-24",
+    "uid": "posts-1345jkadk2l"
+  },
+  {
+    "writer": "suheon",
+    "title": "HTML Markup Language",
+    "reg_date": "2023-05-18",
+    "uid": "posts-1k4j243dk2l"
+  }
+]

@@ -1,5 +1,6 @@
 import { Card, Descriptions, Divider, Layout } from "antd";
 import { CodeDescription } from "./CodeDescription";
+import { PostList } from "../../components/tddApi";
 
 const TDDApiPage = () => {
   const { Content } = Layout;
@@ -18,7 +19,7 @@ const TDDApiPage = () => {
         <Divider />
         <Content style={{ display: "flex" }}>
           <Card style={{ width: "40%", flex: "none" }}>
-            {/* <CreateUser options={options} /> */}
+            <PostList />
           </Card>
           <Card
             style={{
