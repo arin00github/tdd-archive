@@ -1,27 +1,24 @@
 import { Card, Descriptions, Divider, Layout } from "antd";
-import { CodeDescription } from "./CodeDescription";
-//import { PostList } from "../../components/tddApi";
-import { BookList } from "../../components/tddApi/BookList";
+import { MockText } from "../../components/tddMock/MockText";
 
-const TDDApiPage = () => {
+const TDDBasicPage = () => {
   const { Content } = Layout;
 
   return (
     <Layout>
       <Content style={{ padding: "0 32px", marginTop: "30px" }}>
-        <h2>Mocking Service Worker</h2>
+        <h2>Concept of TDD</h2>
         <div>
           <Descriptions>
             <Descriptions.Item label="topic">
-              msw 사용방법 가이드 (axios)
+              expect 함수 사용방법 가이드
             </Descriptions.Item>
           </Descriptions>
         </div>
         <Divider />
         <Content style={{ display: "flex" }}>
           <Card style={{ width: "40%", flex: "none" }}>
-            {/* <PostList /> */}
-            <BookList />
+            <MockText />
           </Card>
           <Card
             style={{
@@ -31,7 +28,7 @@ const TDDApiPage = () => {
             }}
           >
             <Content style={{ height: "540px", overflowY: "scroll" }}>
-              <CodeDescription />
+              {/* <CodeDescription /> */}
             </Content>
           </Card>
         </Content>
@@ -40,4 +37,4 @@ const TDDApiPage = () => {
   );
 };
 
-export default TDDApiPage;
+export default TDDBasicPage;

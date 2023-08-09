@@ -16,6 +16,7 @@ describe("Create User Component", () => {
     expect(inputName).toBeInTheDocument();
     fireEvent.change(inputName, { target: { value: "LeeYunseo" } });
     expect(inputName.getAttribute("value")).toBe("LeeYunseo");
+    expect(inputName.getAttribute('value')).toMatch(/^[A-Za-z]{1,20}$/)
   });
 
   it("Select Component Rendering & Change Value", async () => {
