@@ -26,8 +26,8 @@ export const handler = [
     return res(ctx.status(200), ctx.json(postsData));
   }),
 
-  rest.get(makeTestUrl(GET_BOOKLIST_URL), async (req, res, ctx) => {
-    console.log("req", req);
-    return res(ctx.status(200), ctx.json(postsData));
-  }),
+  // rest.get(makeTestUrl(GET_BOOKLIST_URL), async (req, res, ctx) => {
+  //   console.log("req", req);
+  //   return res(ctx.status(200), ctx.json(postsData));
+  // }),
 ];

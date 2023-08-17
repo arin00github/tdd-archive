@@ -1,7 +1,7 @@
 import { Card, Descriptions, Divider, Layout } from "antd";
-import { MockText } from "../../components/tddMock/MockText";
+import { UserForm } from "../../components/tddModule/UserForm";
 
-const TDDMockPage = () => {
+const TDDModulePage = () => {
   const { Content } = Layout;
 
   return (
@@ -18,7 +18,7 @@ const TDDMockPage = () => {
         <Divider />
         <Content style={{ display: "flex" }}>
           <Card style={{ width: "40%", flex: "none" }}>
-            <MockText />
+            <UserForm />
           </Card>
           <Card
             style={{
@@ -37,4 +37,4 @@ const TDDMockPage = () => {
   );
 };
 
-export default TDDMockPage;
+export default TDDModulePage;

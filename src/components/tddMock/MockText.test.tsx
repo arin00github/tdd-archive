@@ -21,17 +21,29 @@ import { addUtils } from "../../utils/addUtils";
 /** //FAIL 실패 코드
  *
  */
-const mockAddUtils = jest.fn();
-jest.mock("../../utils/addUtils.ts", () => ({
-  addUtils: mockAddUtils,
-}));
+// const mockAddUtils = jest.fn();
+// jest.mock("../../utils/addUtils.ts", () => ({
+//   addUtils: mockAddUtils,
+// }));
+
+// test("Component Test", () => {
+//   mockAddUtils.mockReturnValue(8);
+//   //여기서 부른 mockAddUtils는 컴포넌트 안의 addUtils와 아무 관련이 없음.
+//   //위에 jest.mock부분에서 addUtils: mockAddUtils는 addUtils: jest.fn() 만 의미할 뿐.
+//   render(<MockText />);
+//   expect(screen.getByTestId("mock-text").textContent).toBe("9");
+//   expect(addUtils).toHaveBeenCalled();
+//   expect(addUtils).toHaveBeenCalledWith(3, 6);
+// });
+
+/** //FAIL 실패 코드
+ *
+ */
 
 test("Component Test", () => {
-  mockAddUtils.mockReturnValue(8);
-  //여기서 부른 mockAddUtils는 컴포넌트 안의 addUtils와 아무 관련이 없음.
-  //위에 jest.mock부분에서 addUtils: mockAddUtils는 addUtils: jest.fn() 만 의미할 뿐.
   render(<MockText />);
-  expect(screen.getByTestId("mock-text").textContent).toBe("8");
+  expect(screen.getByTestId("mock-text").textContent).toBe("9"); // 여기까지는 통과.
   expect(addUtils).toHaveBeenCalled();
+  //expect안에 들어갈 수 있는 함수는 모킹되어 있거나, spyOn 되어 있는 함수만 가능하다.
   expect(addUtils).toHaveBeenCalledWith(3, 6);
 });

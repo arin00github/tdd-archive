@@ -44,28 +44,21 @@ function getItem(
 const items: MenuProps["items"] = [
   getItem("Home", "sub0", <HomeOutlined />),
   getItem("TDD Basic", "sub1", <StarOutlined />, [
-    getItem("Expect()", "/tdd-comcept-1"),
+    getItem("[Jest] Expect()", "/tdd-comcept-1"),
+    getItem("[RTL] 비동기 테스트", "/tdd-comcept-2"),
   ]),
   getItem("TDD API", "sub2", <StarOutlined />, [
     getItem("MSW", "/tdd-api-1"),
     getItem("React Query", "/tdd-api-2"),
-    getItem("React Query 2", "/tdd-api-3"),
   ]),
-
   { type: "divider" },
-
   getItem("Mock", "sub3", <StarOutlined />, [
     getItem("Mocking", "/tdd-mock-1"),
     getItem("Option 10", "10"),
   ]),
-
-  getItem(
-    "Group",
-    "grp",
-    null,
-    [getItem("Option 13", "13"), getItem("Option 14", "14")],
-    "group"
-  ),
+  getItem("Modulize", "sub4", <StarOutlined />, [
+    getItem("Check Reg", "/tdd-modulize-1"),
+  ]),
 ];
 
 const RootLayout = () => {

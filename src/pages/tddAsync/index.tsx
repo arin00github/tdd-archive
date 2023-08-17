@@ -1,7 +1,9 @@
 import { Card, Descriptions, Divider, Layout } from "antd";
-import { MockText } from "../../components/tddMock/MockText";
 
-const TDDMockPage = () => {
+import { CodeDescription } from "./CodeDescription";
+import { Sample1 } from "../../components/tddBasic/Sample1";
+
+const TDDAsyncPage = () => {
   const { Content } = Layout;
 
   return (
@@ -11,14 +13,14 @@ const TDDMockPage = () => {
         <div>
           <Descriptions>
             <Descriptions.Item label="topic">
-              expect 함수 사용방법 가이드
+              비동기 사용방법 가이드
             </Descriptions.Item>
           </Descriptions>
         </div>
         <Divider />
         <Content style={{ display: "flex" }}>
           <Card style={{ width: "40%", flex: "none" }}>
-            <MockText />
+            <Sample1 />
           </Card>
           <Card
             style={{
@@ -28,7 +30,7 @@ const TDDMockPage = () => {
             }}
           >
             <Content style={{ height: "540px", overflowY: "scroll" }}>
-              {/* <CodeDescription /> */}
+              <CodeDescription />
             </Content>
           </Card>
         </Content>
@@ -37,4 +39,4 @@ const TDDMockPage = () => {
   );
 };
 
-export default TDDMockPage;
+export default TDDAsyncPage;

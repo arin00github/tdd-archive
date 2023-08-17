@@ -3,6 +3,7 @@ import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { bookItem } from "../interfaces/tddApi.interface";
 import { GET_BOOKLIST_URL, makeTestUrl } from "../../services/api/constant";
+import dayjs from "dayjs";
 
 export const BookList = () => {
   const [bookList, setBookList] = useState<bookItem[]>();
@@ -19,6 +20,10 @@ export const BookList = () => {
       console.log(err);
       return undefined;
     }
+  };
+
+  const dayString = (dayText: string) => {
+    return dayjs(dayText).format("MM/DD/YYYY");
   };
 
   useEffect(() => {
@@ -54,6 +59,7 @@ export const BookList = () => {
       ) : (
         <Text>loading....</Text>
       )}
+      <Text>{dayString("2023-08-29")}</Text>
     </Box>
   );
 };
