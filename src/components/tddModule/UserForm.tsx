@@ -23,10 +23,10 @@ const initialForm: FormType = {
 };
 
 //1~20자 한글,영문,숫자,공백, _ 입력
-const validateName =
+export const validateName =
   /^[a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣_][a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣\s_]{0,19}$/;
 //1~20자 영문소문자,숫자,_ 입력 (첫글자는 영문만 허용)
-const validateId = /^[a-z][a-z0-9_]{0,19}$/;
+export const validateId = /^[a-z][a-z0-9_]{0,19}$/;
 
 export const UserForm = () => {
   const [form, setForm] = useState<FormType>(initialForm);
@@ -67,8 +67,9 @@ export const UserForm = () => {
           <Input
             id="user-id"
             name="user_id"
-            data-testid="test-user-id"
+            data-testid="userform-user-id"
             onChange={handleChange}
+            value={form.user_id}
           />
           <Text></Text>
         </FormControl>
@@ -79,6 +80,7 @@ export const UserForm = () => {
             name="user_name"
             data-testid="test-user-name"
             onChange={handleChange}
+            value={form.user_name}
           />
         </FormControl>
         <FormControl isRequired mb={4}>
@@ -88,6 +90,7 @@ export const UserForm = () => {
             name="mobile_carrier"
             data-testid="test-mobile-carrier"
             onChange={handleChange}
+            value={form.mobile_carrier}
           >
             <option value={undefined}>선택 안함</option>
             <option value="skt">SKT</option>
