@@ -46,9 +46,15 @@ export const CreateUser = ({ options = initialOptions }: CreatUserProps) => {
     if (errorMsg) setErrorMsg(undefined);
   };
 
+  const nameCheck = new RegExp(/^[A-Za-z]{1,20}$/);
+
   const onSubmitBtnClick = () => {
     if (form.group && form.name) {
-      setResultMsg("등록 성공!");
+      if (nameCheck.test(form.group)) {
+        setResultMsg("등록 성공!");
+      } else {
+        setErrorMsg("이름은 영문 20자 이내만 가능합니다");
+      }
     } else {
       setErrorMsg("모두 다 작성해 주세요");
     }
@@ -74,7 +80,7 @@ export const CreateUser = ({ options = initialOptions }: CreatUserProps) => {
             name="name"
             value={form.name}
             onChange={onFormChange}
-            data-testid="creatuser-input-name-2"
+            data-testid="creatuser-input-name"
           />
         </FormControl>
         <FormControl id="job-group">
@@ -83,7 +89,7 @@ export const CreateUser = ({ options = initialOptions }: CreatUserProps) => {
             name="group"
             onChange={onFormChange}
             value={form.group}
-            data-testid="create-select-group-2"
+            data-testid="create-select-group"
           >
             <option value={undefined}>선택 안함</option>
             {options.map((opt) => (
