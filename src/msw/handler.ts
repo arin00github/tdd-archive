@@ -32,3 +32,9 @@ export const handler = [
     return res(ctx.status(200), ctx.json(postsData));
   }),
 ];
+
+export const tddHandler = [
+  rest.get(makeTestUrl(GET_OPTIONS_URL), async (_, res, ctx) => {
+    return res(ctx.status(200), ctx.json(initialOptions));
+  }),
+];
