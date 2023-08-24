@@ -8,6 +8,7 @@ import "antd/dist/reset.css";
 import router from "./routes/Router.tsx";
 import { worker } from "./msw/browser.ts";
 import { ChakraProvider } from "@chakra-ui/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 if (process.env.NODE_ENV === "development") {
   worker.printHandlers();
@@ -17,10 +18,14 @@ if (process.env.NODE_ENV === "development") {
 // Then register the languages you need
 hljs.registerLanguage("javascript", javascript);
 
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ChakraProvider>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </ChakraProvider>
   </React.StrictMode>
 );

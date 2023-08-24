@@ -1,3 +1,10 @@
+import { MarkDownWrapper } from "../../components/common";
+
+const markdown = `
+
+# Here is some JavaScript code
+
+\`\`\`typescript
 import { fireEvent, render } from "@testing-library/react";
 import { UserForm } from "./UserForm";
 
@@ -15,3 +22,12 @@ test.each(testEachParams)("initial render", (first, second, third) => {
   });
   expect(inputUserId.getAttribute("value")).toMatch(third);
 });
+
+\`\`\`
+
+
+`;
+
+export const CodeDescription = () => {
+  return <MarkDownWrapper>{markdown}</MarkDownWrapper>;
+};

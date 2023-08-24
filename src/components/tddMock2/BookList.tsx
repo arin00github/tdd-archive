@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { bookItem } from "../interfaces/tddApi.interface";
 import { GET_BOOKLIST_URL, makeTestUrl } from "../../services/api/constant";
-import dayjs from "dayjs";
+import { useQuery } from "@tanstack/react-query";
 
 /**
  *
@@ -11,10 +11,6 @@ import dayjs from "dayjs";
  */
 
 export const BookList = () => {
-  const [bookList, setBookList] = useState<bookItem[]>();
-
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
   const getBookList = async () => {
     try {
       const results: AxiosResponse<bookItem[]> = await axios.get(
@@ -27,32 +23,20 @@ export const BookList = () => {
     }
   };
 
-  const dayString = (dayText: string) => {
-    return dayjs(dayText).format("MM/DD/YYYY");
-  };
-
-  useEffect(() => {
-    getBookList()
-      .then((res) => {
-        setBookList(res);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.log("err", err);
-        setIsLoading(false);
-      });
-  }, []);
-  console.log("bookList", bookList);
+  const { data, isLoading } = useQuery({
+    queryKey: ["book-list"],
+    queryFn: getBookList,
+  });
 
   return (
     <Box>
       <Box borderBottom="1px solid" borderColor="#dadada">
-        <Text>설명 : msw로 설정한 책 리스트 불러오는 API를 테스트</Text>
+        <Text>설명 : react-query는 모킹처리 하지 않아도 코드가 작동한다</Text>
       </Box>
       <Box pt={6}>
         {!isLoading ? (
           <Box>
-            {bookList?.map((book, idx) => (
+            {data?.map((book, idx) => (
               <Box
                 key={`${book.title}-${idx}`}
                 borderBottom="1px solid"
@@ -70,8 +54,6 @@ export const BookList = () => {
           <Text>loading....</Text>
         )}
       </Box>
-
-      <Text>{dayString("2023-08-29")}</Text>
     </Box>
   );
 };

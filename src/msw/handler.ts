@@ -1,6 +1,7 @@
 import { rest } from "msw";
 import {
   GET_BOOKLIST_URL,
+  GET_MOVIES_URL,
   GET_OPTIONS_URL,
   GET_POSTS_URL,
   makeTestUrl,
@@ -25,9 +26,12 @@ export const handler = [
     console.log("req", req);
     return res(ctx.status(200), ctx.json(postsData));
   }),
+  rest.get(makeTestUrl(GET_MOVIES_URL), async (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(postsData));
+  }),
 
-  // rest.get(makeTestUrl(GET_BOOKLIST_URL), async (req, res, ctx) => {
-  //   console.log("req", req);
-  //   return res(ctx.status(200), ctx.json(postsData));
-  // }),
+  rest.get(makeTestUrl(GET_BOOKLIST_URL), async (req, res, ctx) => {
+    console.log("req", req);
+    return res(ctx.status(200), ctx.json(postsData));
+  }),
 ];

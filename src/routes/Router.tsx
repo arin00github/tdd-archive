@@ -5,6 +5,7 @@ import TDDBasicPage from "../pages/tddBasic";
 import TDDApiPage from "../pages/tddApi";
 import HomePage from "../pages/home";
 import TDDMockPage from "../pages/tddMock";
+import TDDMockPage2 from "../pages/tddMock2";
 import TDDAsyncPage from "../pages/tddAsync";
 import TDDModulePage from "../pages/tddModule";
 
@@ -19,6 +20,7 @@ export const pageArray = [
     element: <TDDApiPage />,
   },
   { path: "/tdd-mock-1", element: <TDDMockPage /> },
+  { path: "/tdd-mock-2", element: <TDDMockPage2 /> },
   { path: "/tdd-modulize-1", element: <TDDModulePage /> },
   {
     path: "/tdd-api-4",

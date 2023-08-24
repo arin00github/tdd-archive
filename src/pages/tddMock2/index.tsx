@@ -1,8 +1,9 @@
 import { Card, Descriptions, Divider, Layout } from "antd";
-import { UserForm } from "../../components/tddModule/UserForm";
+
+import { BookList } from "../../components/tddMock2/BookList";
 import { CodeDescription } from "./CodeDescription";
 
-const TDDModulePage = () => {
+const TDDMockPage = () => {
   const { Content } = Layout;
 
   return (
@@ -12,14 +13,14 @@ const TDDModulePage = () => {
         <div>
           <Descriptions>
             <Descriptions.Item label="topic">
-              테스트 코드 재사용 방법
+              mocking 하지 않아도 되는 외부 라이브러리 예시
             </Descriptions.Item>
           </Descriptions>
         </div>
         <Divider />
         <Content style={{ display: "flex" }}>
           <Card style={{ width: "40%", flex: "none" }}>
-            <UserForm />
+            <BookList />
           </Card>
           <Card
             style={{
@@ -38,4 +39,4 @@ const TDDModulePage = () => {
   );
 };
 
-export default TDDModulePage;
+export default TDDMockPage;

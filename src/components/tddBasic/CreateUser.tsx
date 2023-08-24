@@ -1,4 +1,3 @@
- 
 import {
   Box,
   Input,
@@ -62,31 +61,40 @@ export const CreateUser = ({ options = initialOptions }: CreatUserProps) => {
   };
   return (
     <Box>
-      <FormControl id="job-name">
-        <FormLabel>name</FormLabel>
-        <Input
-          name="name"
-          value={form.name}
-          onChange={onFormChange}
-          data-testid="creatuser-input-name-2"
-        />
-      </FormControl>
-      <FormControl id="job-group">
-        <FormLabel>group</FormLabel>
-        <Select
-          name="group"
-          onChange={onFormChange}
-          value={form.group}
-          data-testid="create-select-group-2"
-        >
-          <option value={undefined}>선택 안함</option>
-          {options.map((opt) => (
-            <option value={opt.value} key={opt.value}>
-              {opt.label}
-            </option>
-          ))}
-        </Select>
-      </FormControl>
+      <Box borderBottom="1px solid" borderColor="#dadada">
+        <Text>
+          설명 : expect 함수가 제공하는 matcher 기능이 어떻게 쓰이는지 보여주는
+          예시
+        </Text>
+      </Box>
+      <Box pt={6}>
+        <FormControl id="job-name">
+          <FormLabel>name</FormLabel>
+          <Input
+            name="name"
+            value={form.name}
+            onChange={onFormChange}
+            data-testid="creatuser-input-name-2"
+          />
+        </FormControl>
+        <FormControl id="job-group">
+          <FormLabel>group</FormLabel>
+          <Select
+            name="group"
+            onChange={onFormChange}
+            value={form.group}
+            data-testid="create-select-group-2"
+          >
+            <option value={undefined}>선택 안함</option>
+            {options.map((opt) => (
+              <option value={opt.value} key={opt.value}>
+                {opt.label}
+              </option>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+
       {errorMsg && (
         <Text mt={4} color="red.600">
           {errorMsg}

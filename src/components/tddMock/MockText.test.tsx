@@ -40,10 +40,27 @@ import { addUtils } from "../../utils/addUtils";
  *
  */
 
+// test("Component Test", () => {
+//   render(<MockText />);
+//   expect(screen.getByTestId("mock-text").textContent).toBe("9"); // 여기까지는 통과.
+//   expect(addUtils).toHaveBeenCalled();
+//   //expect안에 들어갈 수 있는 함수는 모킹되어 있거나, spyOn 되어 있는 함수만 가능하다.
+//   expect(addUtils).toHaveBeenCalledWith(3, 6);
+// });
+
+/** //FAIL 실패 코드
+ * mockImplementation 방법을 활용
+ */
+jest.mock("../../utils/addUtils.ts", () => ({
+  addUtils: jest.fn(), //여기서 return 값까지 설정해야 한다.
+}));
+
 test("Component Test", () => {
+  (addUtils as jest.Mock).mockImplementation((a, b) => a * b);
   render(<MockText />);
-  expect(screen.getByTestId("mock-text").textContent).toBe("9"); // 여기까지는 통과.
+  //expect(screen.getByTestId("mock-text")).toBeInTheDocument();
+  expect(screen.getByTestId("mock-text").textContent).toBe("8");
   expect(addUtils).toHaveBeenCalled();
-  //expect안에 들어갈 수 있는 함수는 모킹되어 있거나, spyOn 되어 있는 함수만 가능하다.
   expect(addUtils).toHaveBeenCalledWith(3, 6);
+  //   screen.debug();
 });

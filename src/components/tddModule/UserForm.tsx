@@ -61,62 +61,67 @@ export const UserForm = () => {
   };
   return (
     <Box>
-      <form>
-        <FormControl isRequired mb={4}>
-          <FormLabel>아이디</FormLabel>
-          <Input
-            id="user-id"
-            name="user_id"
-            data-testid="userform-user-id"
-            onChange={handleChange}
-            value={form.user_id}
-          />
-          <Text></Text>
-        </FormControl>
-        <FormControl isRequired mb={4}>
-          <FormLabel>이름</FormLabel>
-          <Input
-            id="user-name"
-            name="user_name"
-            data-testid="test-user-name"
-            onChange={handleChange}
-            value={form.user_name}
-          />
-        </FormControl>
-        <FormControl isRequired mb={4}>
-          <FormLabel>통신사</FormLabel>
-          <Select
-            id="mobile-carrier"
-            name="mobile_carrier"
-            data-testid="test-mobile-carrier"
-            onChange={handleChange}
-            value={form.mobile_carrier}
-          >
-            <option value={undefined}>선택 안함</option>
-            <option value="skt">SKT</option>
-            <option value="kt">KT</option>
-            <option value="lg">LG</option>
-          </Select>
-        </FormControl>
-        <Box>
-          {errors && (
-            <Text color="red.400" data-testid="test-errorm-message">
-              {errors}
-            </Text>
-          )}
-        </Box>
-        <Box>
-          <ButtonGroup>
-            <Button
-              colorScheme="blue"
-              onClick={handleSubmit}
-              data-testid="test-submit-button"
+      <Box borderBottom="1px solid" borderColor="#dadada">
+        <Text>설명 : test.each 사용하여 코드 재사용 하기</Text>
+      </Box>
+      <Box pt={6}>
+        <form>
+          <FormControl isRequired mb={4}>
+            <FormLabel>아이디</FormLabel>
+            <Input
+              id="user-id"
+              name="user_id"
+              data-testid="userform-user-id"
+              onChange={handleChange}
+              value={form.user_id}
+            />
+            <Text></Text>
+          </FormControl>
+          <FormControl isRequired mb={4}>
+            <FormLabel>이름</FormLabel>
+            <Input
+              id="user-name"
+              name="user_name"
+              data-testid="test-user-name"
+              onChange={handleChange}
+              value={form.user_name}
+            />
+          </FormControl>
+          <FormControl isRequired mb={4}>
+            <FormLabel>통신사</FormLabel>
+            <Select
+              id="mobile-carrier"
+              name="mobile_carrier"
+              data-testid="test-mobile-carrier"
+              onChange={handleChange}
+              value={form.mobile_carrier}
             >
-              submit
-            </Button>
-          </ButtonGroup>
-        </Box>
-      </form>
+              <option value={undefined}>선택 안함</option>
+              <option value="skt">SKT</option>
+              <option value="kt">KT</option>
+              <option value="lg">LG</option>
+            </Select>
+          </FormControl>
+          <Box>
+            {errors && (
+              <Text color="red.400" data-testid="test-errorm-message">
+                {errors}
+              </Text>
+            )}
+          </Box>
+          <Box>
+            <ButtonGroup>
+              <Button
+                colorScheme="blue"
+                onClick={handleSubmit}
+                data-testid="test-submit-button"
+              >
+                submit
+              </Button>
+            </ButtonGroup>
+          </Box>
+        </form>
+      </Box>
     </Box>
   );
 };

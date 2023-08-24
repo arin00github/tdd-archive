@@ -47,14 +47,11 @@ const items: MenuProps["items"] = [
     getItem("[Jest] Expect()", "/tdd-comcept-1"),
     getItem("[RTL] 비동기 테스트", "/tdd-comcept-2"),
   ]),
-  getItem("TDD API", "sub2", <StarOutlined />, [
-    getItem("MSW", "/tdd-api-1"),
-    getItem("React Query", "/tdd-api-2"),
-  ]),
+  getItem("TDD API", "sub2", <StarOutlined />, [getItem("MSW", "/tdd-api-1")]),
   { type: "divider" },
   getItem("Mock", "sub3", <StarOutlined />, [
     getItem("Mocking", "/tdd-mock-1"),
-    getItem("Option 10", "10"),
+    getItem("React Query", "/tdd-mock-2"),
   ]),
   getItem("Modulize", "sub4", <StarOutlined />, [
     getItem("Check Reg", "/tdd-modulize-1"),
