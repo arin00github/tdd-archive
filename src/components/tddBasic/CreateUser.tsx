@@ -102,7 +102,7 @@ export const CreateUser = ({ options = initialOptions }: CreatUserProps) => {
       </Box>
 
       {errorMsg && (
-        <Text mt={4} color="red.600">
+        <Text mt={4} color="red.600" data-testid="error-message">
           {errorMsg}
         </Text>
       )}
@@ -114,7 +114,12 @@ export const CreateUser = ({ options = initialOptions }: CreatUserProps) => {
         >
           Submit
         </Button>
-        <Button onClick={onResetBtnClick} colorScheme="blue" variant="outline">
+        <Button
+          onClick={onResetBtnClick}
+          colorScheme="blue"
+          variant="outline"
+          data-testid="reset-btn"
+        >
           reset
         </Button>
       </ButtonGroup>
