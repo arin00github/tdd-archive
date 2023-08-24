@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import RootLayout from "./Layout";
-import MutationExamplePage from "../pages/mutationExample";
+
 import TDDBasicPage from "../pages/tddBasic";
 import TDDApiPage from "../pages/tddApi";
 import HomePage from "../pages/home";
@@ -22,10 +22,6 @@ export const pageArray = [
   { path: "/tdd-mock-1", element: <TDDMockPage /> },
   { path: "/tdd-mock-2", element: <TDDMockPage2 /> },
   { path: "/tdd-modulize-1", element: <TDDModulePage /> },
-  {
-    path: "/tdd-api-4",
-    element: <MutationExamplePage />,
-  },
 ];
 
 const routerObject = [
