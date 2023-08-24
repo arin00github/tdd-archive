@@ -17,21 +17,18 @@ export const initialOptions: { label: string; value: string }[] = [
 ];
 
 export const handler = [
-  rest.get(makeTestUrl(GET_OPTIONS_URL), async (req, res, ctx) => {
-    console.log("req", req);
+  rest.get(makeTestUrl(GET_OPTIONS_URL), async (_, res, ctx) => {
     return res(ctx.status(200), ctx.json(initialOptions));
   }),
 
-  rest.get(makeTestUrl(GET_POSTS_URL), async (req, res, ctx) => {
-    console.log("req", req);
+  rest.get(makeTestUrl(GET_POSTS_URL), async (_, res, ctx) => {
     return res(ctx.status(200), ctx.json(postsData));
   }),
-  rest.get(makeTestUrl(GET_MOVIES_URL), async (req, res, ctx) => {
+  rest.get(makeTestUrl(GET_MOVIES_URL), async (_, res, ctx) => {
     return res(ctx.status(200), ctx.json(postsData));
   }),
 
-  rest.get(makeTestUrl(GET_BOOKLIST_URL), async (req, res, ctx) => {
-    console.log("req", req);
+  rest.get(makeTestUrl(GET_BOOKLIST_URL), async (_, res, ctx) => {
     return res(ctx.status(200), ctx.json(postsData));
   }),
 ];
